@@ -11,7 +11,7 @@ package teamviewer;
  */
 public class MainWindow 
 {
-    public void DrawMainWindow
+    public void DrawMainWindow()
     {
         //displays main window
     }
