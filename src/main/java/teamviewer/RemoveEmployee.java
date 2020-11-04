@@ -6,11 +6,13 @@
 package teamviewer;
 
 /**
- *Gets: employee names, start/end dates.
+ *gets:
+ * name from add employee window
+ * start/end time from add employee window
+ * displays 
  * @author tyler
  */
-
-public class ScheduleGraphics 
+public class RemoveEmployee 
 {
     /**
      * 
@@ -18,13 +20,8 @@ public class ScheduleGraphics
      * @param startTime
      * @param endTime 
      */
-    public void DrawSchedule(String employeeName, double startTime, double endTime)
+    public void showEmployees(String employeeName, double startTime, double endTime)
     {
-        //Displays over schedule template.
-    }
-    
-    public void DrawScheduleTemplate()
-    {
-        //creates GUI for schedule, schedules will be displayed over this.
+        //shows added employees. 
     }
 }

@@ -6,9 +6,11 @@
 package teamviewer;
 
 /**
- *
+ *open file selector
+ * get employee name, start/end times from CSV
  * @author tyler
  */
-public class ImportEmployee {
+public class ImportEmployee 
+{
     
 }

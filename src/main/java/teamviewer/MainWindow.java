@@ -6,9 +6,14 @@
 package teamviewer;
 
 /**
- *
+ * 
  * @author tyler
  */
-public class MainWindow {
+public class MainWindow 
+{
+    public void DrawMainWindow
+    {
+        //displays main window
+    }
     
 }
