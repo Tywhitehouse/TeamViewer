@@ -1,6 +1,7 @@
 package teamviewer;
 
 import static org.junit.jupiter.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +17,21 @@ import org.junit.jupiter.api.Test;
  */
 public class TeamViewerTests 
 {
-    
+        @Test
+    public final void testMain() 
+    {
+        String expectedResult = "Main running sucessfully";
+        String actualResult;
+
+        try{
+            Scheduler.main(new String[0]);
+            actualResult = "Main running sucessfully";
+        }
+        catch (RuntimeException e){
+            actualResult = e.toString();
+        }
+        assertEquals("Should run without throwing an error.", expectedResult, actualResult);
+    }
     @Test
     public void teststuff()
     {
@@ -25,8 +40,8 @@ public class TeamViewerTests
     
     @Test
     void removeAccountRemovesAccountFromCustomer () {
-        employee.removeEmployee("1");
-        var customerAccount = employee.getAccount("1");
+        Employee.removeEmployee("james", 2.15, 2.15);
+        var customerAccount = Employee.getEmployee("james", 2.15, 2.15);
         assertNull(customerAccount, "Did not receive the expected null account value.");
     }
 }
