@@ -1,6 +1,5 @@
 package teamviewer;
-
-import static org.junit.jupiter.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,7 +16,8 @@ import org.junit.jupiter.api.Test;
  */
 public class TeamViewerTests 
 {
-        @Test
+    @Test
+    @DisplayName ("Tests that a name for ")
     public final void testMain() 
     {
         String expectedResult = "Main running sucessfully";
@@ -32,16 +32,29 @@ public class TeamViewerTests
         }
         assertEquals("Should run without throwing an error.", expectedResult, actualResult);
     }
+    
     @Test
-    public void teststuff()
+    @DisplayName ("Tests that an employee name was entered.")
+    public void testEmployeeName()
     {
-        assertNotNull([message,] object)
+        String EmployeeName = Employee.getName;
+        assertNotNull("Employee name is null", EmployeeName);
     }
     
     @Test
-    void removeAccountRemovesAccountFromCustomer () {
-        Employee.removeEmployee("james", 2.15, 2.15);
-        var customerAccount = Employee.getEmployee("james", 2.15, 2.15);
-        assertNull(customerAccount, "Did not receive the expected null account value.");
+    @DisplayName ("Tests that a shift start time was entered.")
+    public void testStartTime()
+    {
+        double startTime = Employee.getStartTime;
+        assertNotNull("Employee start time is null", startTime);
     }
+    
+    @Test
+    @DisplayName ("Tests that a shift end time was entered.")
+    public void testEndTime()
+    {
+        double endTime = Employee.getEndTime;
+        assertNotNull("Employee end time is null", endTime);
+    }
+    
 }

@@ -14,6 +14,21 @@ package teamviewer;
  */
 public class Employee 
 {
+    static String getName;
+    static double getStartTime;
+    static double getEndTime;
+    
+    public Scheduler getName () {
+        return null;  // Stub
+    }
+    
+    public Scheduler getStartTime () {
+        return null;  // Stub
+    }
+    
+    public Scheduler getEndTime () {
+        return null;  // Stub
+    }
     /**
      * 
      * @param employeeName
