@@ -38,7 +38,7 @@ public class TeamViewerTests
     public void testEmployeeName()
     {
         String EmployeeName = Employee.getName;
-        assertNotNull("Employee name is null", EmployeeName);
+        assertNotNull(EmployeeName);
     }
     
     @Test
@@ -46,7 +46,7 @@ public class TeamViewerTests
     public void testStartTime()
     {
         double startTime = Employee.getStartTime;
-        assertNotNull("Employee start time is null", startTime);
+        assertNotNull(startTime);
     }
     
     @Test
@@ -54,7 +54,7 @@ public class TeamViewerTests
     public void testEndTime()
     {
         double endTime = Employee.getEndTime;
-        assertNotNull("Employee end time is null", endTime);
+        assertNotNull(endTime);
     }
     
 }
