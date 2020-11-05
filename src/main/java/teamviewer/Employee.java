@@ -44,6 +44,6 @@ public class Employee
      */
     public void removeEmployee(String employeeName, double startTime, double endTime)
     {
-        //shows added employees. 
+        //removes added employees. 
     }
 }
