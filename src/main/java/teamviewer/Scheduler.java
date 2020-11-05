@@ -7,7 +7,7 @@ package teamviewer;
 
 /**
  *
- * @author tyler
+ * @author Tyler Whitehouse
  */
 public class Scheduler {
     public static void main(String[] args) 

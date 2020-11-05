@@ -10,7 +10,7 @@ package teamviewer;
  * name from add employee window
  * start/end time from add employee window
  *saves employee data to 
- * @author tyler
+ * @author Tyler Whitehouse
  */
 public class EmployeeStorage 
 {

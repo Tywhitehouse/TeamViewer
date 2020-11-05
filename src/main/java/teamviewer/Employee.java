@@ -10,7 +10,7 @@ package teamviewer;
  * name from add employee window
  * start/end time from add employee window
  * displays 
- * @author tyler
+ * @author Tyler Whitehouse
  */
 public class Employee 
 {

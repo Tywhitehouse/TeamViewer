@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  *
- * @author tyler
+ * @author tyler Whitehouse
  */
 public class TeamViewerTests 
 {
