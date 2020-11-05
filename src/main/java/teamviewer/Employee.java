@@ -12,7 +12,7 @@ package teamviewer;
  * displays 
  * @author tyler
  */
-public class RemoveEmployee 
+public class Employee 
 {
     /**
      * 
@@ -21,6 +21,28 @@ public class RemoveEmployee
      * @param endTime 
      */
     public void showEmployees(String employeeName, double startTime, double endTime)
+    {
+        //shows added employees. 
+    }
+    
+    /**
+     * 
+     * @param employeeName
+     * @param startTime
+     * @param endTime 
+     */
+    public void addEmployee(String employeeName, double startTime, double endTime)
+    {
+        //shows added employees. 
+    }
+    
+    /**
+     * 
+     * @param employeeName
+     * @param startTime
+     * @param endTime 
+     */
+    public void removeEmployee(String employeeName, double startTime, double endTime)
     {
         //shows added employees. 
     }
