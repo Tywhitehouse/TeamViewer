@@ -9,9 +9,13 @@ package teamviewer;
  *
  * @author Tyler Whitehouse
  */
-public class Scheduler {
+public class Scheduler 
+{
     public static void main(String[] args) 
     {
-
+        MainWindow MainWindow = new MainWindow();
+        
+        MainWindow.DrawMainWindow();
+        
     }
 }
