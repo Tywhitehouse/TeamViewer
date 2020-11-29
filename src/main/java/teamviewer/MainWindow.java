@@ -8,7 +8,12 @@ package teamviewer;
 
 import javax.swing.*;
 import java.awt.*;
+import javax.swing.JFileChooser;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.awt.event.*;
+import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.event.MenuEvent;
@@ -34,6 +39,7 @@ public class MainWindow
         exportScheduleMenu = new JMenu("Export Schedule");
         HelpWindow HelpWindow = new HelpWindow();
         AddScheduleWindow AddScheduleWindow = new AddScheduleWindow();
+        ImportEmployeeCSV ImportEmployee = new ImportEmployeeCSV();
         JButton HelpButton = new JButton("Help");
         
         manualAdd = new JMenuItem("Manually Add Schedule");
@@ -67,7 +73,7 @@ public class MainWindow
         {
             public void actionPerformed(ActionEvent e) 
             {                    
-            AddScheduleWindow.DrawScheduleWindow();
+                AddScheduleWindow.DrawScheduleWindow();
             }
         });
         
@@ -75,10 +81,22 @@ public class MainWindow
         {
             public void actionPerformed(ActionEvent e) 
             {                    
-            HelpWindow.DrawHelpWindow();
+                HelpWindow.DrawHelpWindow();
             }
         });
         
+        importAdd.addActionListener(new ActionListener() 
+        {                         
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+                fileChooser.showOpenDialog(null);
+                
+                
+            }           
+        });
     }
     
 }
