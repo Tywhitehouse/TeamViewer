@@ -24,25 +24,7 @@ public class ScheduleGraphics
      * @param endTime 
      */
     public void DrawSchedule()
-    {
-        
-        String[] columnNames = {"Employee", "Start Time", "End Time"};
-        
-        Object[][] data = 
-        {
-           {"Kathy", "Smith", "Snowboarding"},
-           {"John", "Doe", "Rowing"},
-           {"Sue", "Black", "Knitting"},
-           {"Jane", "White", "Speed reading"},
-           {"Joe", "Brown", "Pool"}
-        };
-            
-        JTable ScheduleTable = new JTable(data, columnNames);
-        JScrollPane scrollPane = new JScrollPane(ScheduleTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-        ScheduleTable.setFillsViewportHeight(true);
-        JPanel tablePane = new JPanel();
-        tablePane.add(scrollPane);
-      
+    {           
         
     }
     

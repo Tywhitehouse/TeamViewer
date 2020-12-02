@@ -5,53 +5,34 @@
  */
 package teamviewer;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Copy;
+
 /**
- *gets:
- * name from add employee window
- * start/end time from add employee window
- * displays 
- * @author Tyler Whitehouse
+ * 
+ * holds employee array
+ * @author tyler
  */
-public class Employee 
+public class Employee
 {
-   private String name; 
-   private double startTime; 
-   private double endTime; 
-   
-   public Employee(String pathToExcelFile) 
-   { 
-       this.name = name; 
-       this.startTime = startTime; 
-       this.endTime = endTime; 
-   } 
-   
-   public String getName() 
-   { 
-       return name; 
-   } 
-   
-   public void setName(String name) 
-   { 
-       this.name = name; 
-   } 
-   
-   public double getStartTime() 
-   { 
-       return startTime; 
-   } 
-   
-   public void setStartTime(double startTime) 
-   { 
-       this.startTime = startTime; 
-   } 
-   
-   public double getEndTime() 
-   { 
-       return endTime; 
-   } 
-   
-   public void setEndTime(double endTime) 
-   { 
-       this.endTime = endTime; 
+   MainWindow MainWindow = new MainWindow();
+  
+   List<String[]> storedSchedule = new ArrayList<>();
+
+   public void setStoreEmployees(List<String[]> fullSchedule)
+   {
+       //have to copy list because i cant get anything else to work
+        storedSchedule.addAll(fullSchedule);
+
+        System.out.println("set");
+        System.out.println(Arrays.deepToString(storedSchedule.toArray()));
    }
+   
+    public List<String[]> getStoredSchedule()
+    {
+        return storedSchedule;    
+    }
 }
