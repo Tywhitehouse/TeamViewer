@@ -5,6 +5,11 @@
  */
 package teamviewer;
 
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
 /**
  *Gets: employee names, start/end dates.
  * @author tyler
@@ -18,13 +23,27 @@ public class ScheduleGraphics
      * @param startTime
      * @param endTime 
      */
-    public void DrawSchedule(String employeeName, double startTime, double endTime)
+    public void DrawSchedule()
     {
-        //Displays over schedule template.
+        
+        String[] columnNames = {"Employee", "Start Time", "End Time"};
+        
+        Object[][] data = 
+        {
+           {"Kathy", "Smith", "Snowboarding"},
+           {"John", "Doe", "Rowing"},
+           {"Sue", "Black", "Knitting"},
+           {"Jane", "White", "Speed reading"},
+           {"Joe", "Brown", "Pool"}
+        };
+            
+        JTable ScheduleTable = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(ScheduleTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        ScheduleTable.setFillsViewportHeight(true);
+        JPanel tablePane = new JPanel();
+        tablePane.add(scrollPane);
+      
+        
     }
     
-    public void DrawScheduleTemplate()
-    {
-        //creates GUI for schedule, schedules will be displayed over this.
-    }
 }

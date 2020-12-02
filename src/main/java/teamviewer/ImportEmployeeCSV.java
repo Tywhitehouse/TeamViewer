@@ -21,11 +21,16 @@ import javax.swing.JTextArea;
  */
 public class ImportEmployeeCSV
 {
+
+    private String pickedFile;
     
     public void ImportEmployee() 
     {
-     
-        String csvFile = "";
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        fileChooser.showOpenDialog(null);
+        
+        String csvFile = pickedFile;
         String line = "";
         String cvsSplitBy = ",";
 
@@ -35,9 +40,13 @@ public class ImportEmployeeCSV
             {
 
                 // use comma as separator
-                String[] country = line.split(cvsSplitBy);
+                String[] employee = line.split(cvsSplitBy);
 
-                System.out.println("[Name = " + country[4] + " , Start Time =" + country[5] + "End Time" + country[6] + "]");
+                /*
+                print to ScheduleGraphics table
+                
+                */
+                System.out.println("[Name = " + employee[4] + " , Start Time =" + employee[5] + "End Time" + employee[6] + "]");
 
             }
 

@@ -14,51 +14,44 @@ package teamviewer;
  */
 public class Employee 
 {
-    static String getName;
-    static double getStartTime;
-    static double getEndTime;
-    
-    public Scheduler getName () {
-        return null;  // Stub
-    }
-    
-    public Scheduler getStartTime () {
-        return null;  // Stub
-    }
-    
-    public Scheduler getEndTime () {
-        return null;  // Stub
-    }
-    /**
-     * 
-     * @param employeeName
-     * @param startTime
-     * @param endTime 
-     */
-    public void showEmployees(String employeeName, double startTime, double endTime)
-    {
-        //shows added employees. 
-    }
-    
-    /**
-     * 
-     * @param employeeName
-     * @param startTime
-     * @param endTime 
-     */
-    public void addEmployee(String employeeName, double startTime, double endTime)
-    {
-        //shows added employees. 
-    }
-    
-    /**
-     * 
-     * @param employeeName
-     * @param startTime
-     * @param endTime 
-     */
-    public void removeEmployee(String employeeName, double startTime, double endTime)
-    {
-        //removes added employees. 
-    }
+   private String name; 
+   private double startTime; 
+   private double endTime; 
+   
+   public Employee(String pathToExcelFile) 
+   { 
+       this.name = name; 
+       this.startTime = startTime; 
+       this.endTime = endTime; 
+   } 
+   
+   public String getName() 
+   { 
+       return name; 
+   } 
+   
+   public void setName(String name) 
+   { 
+       this.name = name; 
+   } 
+   
+   public double getStartTime() 
+   { 
+       return startTime; 
+   } 
+   
+   public void setStartTime(double startTime) 
+   { 
+       this.startTime = startTime; 
+   } 
+   
+   public double getEndTime() 
+   { 
+       return endTime; 
+   } 
+   
+   public void setEndTime(double endTime) 
+   { 
+       this.endTime = endTime; 
+   }
 }

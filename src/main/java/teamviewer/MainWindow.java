@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
+import javax.swing.JScrollPane;
 
 /**
  * 
@@ -27,7 +28,7 @@ import javax.swing.event.MenuListener;
 
 public class MainWindow 
 {
-       
+        
        public void DrawMainWindow()
     {
         JMenu addScheduleMenu, helpMenu, exportScheduleMenu, removeScheduleMenu;
@@ -37,10 +38,14 @@ public class MainWindow
         addScheduleMenu = new JMenu("Add Schedule"); 
         removeScheduleMenu = new JMenu("Remove Schedule");
         exportScheduleMenu = new JMenu("Export Schedule");
-        HelpWindow HelpWindow = new HelpWindow();
-        AddScheduleWindow AddScheduleWindow = new AddScheduleWindow();
-        ImportEmployeeCSV ImportEmployee = new ImportEmployeeCSV();
         JButton HelpButton = new JButton("Help");
+        HelpWindow HelpWindow = new HelpWindow();      
+
+        
+        AddScheduleWindow AddScheduleWindow = new AddScheduleWindow();
+        ImportEmployeeCSV ImportEmployeeCSV = new ImportEmployeeCSV();
+        ScheduleGraphics ScheduleGraphics = new ScheduleGraphics();
+        
         
         manualAdd = new JMenuItem("Manually Add Schedule");
         importAdd = new JMenuItem("Import Schedule");
@@ -64,13 +69,44 @@ public class MainWindow
         menuBar.add(Box.createHorizontalGlue());
         menuBar.add(HelpButton);
         
+        String[] columnNames = {"Employee", "Start Time", "End Time"};
+        
+        Object[][] data = 
+        {
+           {"Kathy", "Smith", "Snowboarding"},
+           {"John", "Doe", "Rowing"},
+           {"Sue", "Black", "Knitting"},
+           {"Jane", "White", "Speed reading"},
+           {"Joe", "Brown", "Pool"}
+        };
+                
+        JTable ScheduleTable = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(ScheduleTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        ScheduleTable.setFillsViewportHeight(true);
+        
+        JPanel tablePane = new JPanel();
+        tablePane.add(scrollPane);
+        
+        frame.add(tablePane, BorderLayout.CENTER);
+             
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(frame.getContentPane());
+        frame.getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(scrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
+        );   
         frame.setJMenuBar(menuBar);
         frame.setLayout(null);
         frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
+        frame.setLocationRelativeTo(null);       
         
         manualAdd.addActionListener(new ActionListener() 
         {
+            @Override
             public void actionPerformed(ActionEvent e) 
             {                    
                 AddScheduleWindow.DrawScheduleWindow();
@@ -79,6 +115,7 @@ public class MainWindow
         
         HelpButton.addActionListener(new ActionListener() 
         {
+            @Override
             public void actionPerformed(ActionEvent e) 
             {                    
                 HelpWindow.DrawHelpWindow();
@@ -89,10 +126,16 @@ public class MainWindow
         {                         
             @Override
             public void actionPerformed(ActionEvent e) 
-            {
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-                fileChooser.showOpenDialog(null);
+            {              
+                JFrame frame2 = new JFrame("Team Viewer");
+                frame2.setLayout(null);
+                frame2.setVisible(true);
+                frame2.setLocationRelativeTo(null);
+                frame2.setSize(800, 600);
+                
+                
+                ImportEmployeeCSV.ImportEmployee();
+                
                 
                 
             }           
