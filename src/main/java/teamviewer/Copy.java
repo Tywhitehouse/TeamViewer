@@ -5,13 +5,18 @@
  */
 package teamviewer;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
- *gets:
- * name from add employee window
- * start/end time from add employee window
- * 
+ * copies one list to another
  * @author tyler
  */
-public class AddEmployees {
+public class Copy {
     
+    public void copyList(List<String[]> copy, List<String[]> source)
+   {      
+        copy.addAll(source);
+
+   }
 }
