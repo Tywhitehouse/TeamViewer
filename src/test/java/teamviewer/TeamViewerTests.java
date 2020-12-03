@@ -38,24 +38,24 @@ public class TeamViewerTests
     @DisplayName ("Tests that an employee name was entered.")
     public void testEmployeeName()
     {
-//        String EmployeeName = Employee.getName;
-//        assertNotNull(EmployeeName);
+       String EmployeeName = Employee.getName;
+       assertNotNull(EmployeeName);
     }
     
     @Test
     @DisplayName ("Tests that a shift start time was entered.")
     public void testStartTime()
     {
- //       double startTime = Employee.getStartTime;
- //       assertNotNull(startTime);
+      double startTime = Employee.getStartTime;
+      assertNotNull(startTime);
     }
     
     @Test
     @DisplayName ("Tests that a shift end time was entered.")
     public void testEndTime()
     {
- //       double endTime = Employee.getEndTime;
- //       assertNotNull(endTime);
+       double endTime = Employee.getEndTime;
+       assertNotNull(endTime);
     }
     
 }
