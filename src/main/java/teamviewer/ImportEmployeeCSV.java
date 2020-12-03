@@ -25,47 +25,45 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class ImportEmployeeCSV
 {
-    
-    /**
-     *
-     * @return
-     */
+    File pickedFile = null;
+ 
     public void ImportEmployee() 
     {
-        
+        Employee Employee = new Employee();
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
         fileChooser.showOpenDialog(null);
         File pickedFile = fileChooser.getSelectedFile();
-        List<String[]> employeeData = new ArrayList<>();
-        
-        Employee Employee = new Employee();
-        MainWindow MainWindow = new MainWindow();
-
-        
-        String line = ""; 
+      
+        String line = "";
         
         try
         {
-        BufferedReader br = new BufferedReader(new FileReader(pickedFile));
-        
-            while((line = br.readLine()) != null)
-            {               
-                employeeData.add(line.split(","));               
+            BufferedReader br = new BufferedReader(new FileReader(pickedFile));
+            
+            while((line = br.readLine()) != null){
+                String[] values = line.split(",");
+                Employee.addEmployee(values[0], values[1], values[2], values[3]);
             }
-        Employee.setStoreEmployees(employeeData);
-        MainWindow.copyList(employeeData);
-        System.out.println("post import");
-        System.out.println(Arrays.deepToString(employeeData.toArray()));
+            
         }
-        catch(FileNotFoundException e)
-        {
-           e.printStackTrace();
-        } 
-        catch (IOException ex) 
-        {
-            Logger.getLogger(ImportEmployeeCSV.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+
+    }
+    /**
+     * returns file chosen by fileChooser
+     * @return 
+     */
+    public File GetImportFile() 
+    {
+
+        return pickedFile;
 
     }
 

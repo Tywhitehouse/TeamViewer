@@ -18,21 +18,49 @@ import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Copy;
  */
 public class Employee
 {
-   MainWindow MainWindow = new MainWindow();
-  
-   List<String[]> storedSchedule = new ArrayList<>();
+        private String name;
+	private String day;
+	private String startTime;
+	private String endTime;
+        
+        public void addEmployee(String name, String day, String startTime, String endTime)
+        {
+            this.name = name;
+            this.day = day;
+            this.startTime = startTime;
+            this.endTime = endTime;
+        }
 
-   public void setStoreEmployees(List<String[]> fullSchedule)
-   {
-       //have to copy list because i cant get anything else to work
-        storedSchedule.addAll(fullSchedule);
+	public String getDay() {
+		return day;
+	}
 
-        System.out.println("set");
-        System.out.println(Arrays.deepToString(storedSchedule.toArray()));
-   }
-   
-    public List<String[]> getStoredSchedule()
-    {
-        return storedSchedule;    
-    }
+	public void setDay(String day) {
+		this.day = day;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+    
 }

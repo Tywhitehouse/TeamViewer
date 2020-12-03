@@ -5,19 +5,35 @@
  */
 package teamviewer;
 
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import javax.swing.JFrame;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author tyler
  */
 public class MainWindow extends javax.swing.JFrame {
-    Copy Copy = new Copy(); 
-    List<String[]> Schedule = new ArrayList<>();
+    Copy Copy = new Copy();
+    ArrayList<String[]> Schedule = new ArrayList<String[]>();
+    ArrayList<String> holdingArrayList = new ArrayList<String>();
     
+    public String name;
+    public String day;
+    public String startTime;
+    public String endTime;
+
     /**
      * Creates new form MainWindow
      */
@@ -39,7 +55,6 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         scheduleTable = new javax.swing.JTable();
         updateButton = new javax.swing.JButton();
-        TestButton = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         manualAdd = new javax.swing.JMenuItem();
@@ -73,7 +88,15 @@ public class MainWindow extends javax.swing.JFrame {
             new String [] {
                 "Name", "Day", "Start Time", "End Time"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         scheduleTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
         jScrollPane2.setViewportView(scheduleTable);
 
@@ -81,13 +104,6 @@ public class MainWindow extends javax.swing.JFrame {
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateButtonActionPerformed(evt);
-            }
-        });
-
-        TestButton.setText("Test");
-        TestButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TestButtonActionPerformed(evt);
             }
         });
 
@@ -125,9 +141,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(TestButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(221, 221, 221)
                 .addComponent(helpButton))
@@ -139,8 +153,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(helpButton)
-                    .addComponent(updateButton)
-                    .addComponent(TestButton))
+                    .addComponent(updateButton))
                 .addGap(6, 6, 6))
         );
 
@@ -153,11 +166,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_manualAddActionPerformed
 
     private void importAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importAddActionPerformed
-        
-        ImportEmployeeCSV ImportEmployeeCSV = new ImportEmployeeCSV();
-        
-        ImportEmployeeCSV.ImportEmployee();
-                
+
     }//GEN-LAST:event_importAddActionPerformed
 
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
@@ -165,18 +174,14 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_helpButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+
         scheduleTable.repaint();
     }//GEN-LAST:event_updateButtonActionPerformed
-
-    private void TestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestButtonActionPerformed
-        System.out.println("test button");
-        System.out.println(Arrays.deepToString(Schedule.toArray()));
-    }//GEN-LAST:event_TestButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void DrawMainWindow() {
+    public static void main(String [] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -207,19 +212,17 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
     }
-   public void copyList(List<String[]> source)
-   {      
-       //have to copy list because i cant get anything else to work
-        Schedule.addAll(source);
-        
-        System.out.println("set2");
-        System.out.println(Arrays.deepToString(Schedule.toArray()));
-   }
+   public void addToList(String name, String day, String startTime, String endTime)
+   {
+       holdingArrayList.add(name);
+       holdingArrayList.add(day);
+       holdingArrayList.add(startTime);
+       holdingArrayList.add(endTime);
+   }      
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton TestButton;
     private javax.swing.JButton helpButton;
     private javax.swing.JMenuItem importAdd;
     private javax.swing.JMenu jMenu1;
@@ -231,4 +234,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTable scheduleTable;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
+
+    
 }

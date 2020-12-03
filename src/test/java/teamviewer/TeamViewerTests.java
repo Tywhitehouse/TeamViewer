@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import teamviewer.MainWindow;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,7 +25,7 @@ public class TeamViewerTests
         String actualResult;
 
         try{
-            Scheduler.main(new String[0]);
+            MainWindow.main(new String[0]);
             actualResult = "Main running sucessfully";
         }
         catch (RuntimeException e){

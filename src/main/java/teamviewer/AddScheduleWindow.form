@@ -11,7 +11,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -28,61 +28,81 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="employeeNameField" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="startTimelabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="endTimelabel" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                          <Component id="endTimeComboBox" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="endTimeSpinner" pref="55" max="32767" attributes="0"/>
-                          <Component id="startTimeSpinner" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                  <Component id="endTimelabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="startTimelabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="startTimeComboBox" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                      <Component id="employeeNameField" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="startTimelabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Component id="dayComboBox" min="-2" pref="82" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="53" max="32767" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="employeeNameField" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="startTimeSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="startTimelabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="dayComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="startTimelabel1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="endTimeSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="startTimelabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="startTimeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="endTimeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="endTimelabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="58" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JSpinner" name="endTimeSpinner">
-    </Component>
     <Component class="javax.swing.JTextField" name="employeeNameField">
       <Properties>
         <Property name="text" type="java.lang.String" value="Employee Name"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JSpinner" name="startTimeSpinner">
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="AddScheduleWindow_startTimeSpinner"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="startTimelabel">
       <Properties>
@@ -93,6 +113,259 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="End time"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="dayComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="7">
+            <StringItem index="0" value="Sunday"/>
+            <StringItem index="1" value="Monday"/>
+            <StringItem index="2" value="Tuesday"/>
+            <StringItem index="3" value="Wednesday"/>
+            <StringItem index="4" value="Thursday"/>
+            <StringItem index="5" value="Friday"/>
+            <StringItem index="6" value="Saturday"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dayComboBoxActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="startTimelabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Day"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="endTimeComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="97">
+            <StringItem index="0" value="12:00 AM"/>
+            <StringItem index="1" value="12:15 AM"/>
+            <StringItem index="2" value="12:30 AM"/>
+            <StringItem index="3" value="12:45 AM"/>
+            <StringItem index="4" value="1:00 AM"/>
+            <StringItem index="5" value="1:15 AM"/>
+            <StringItem index="6" value="1:30 AM"/>
+            <StringItem index="7" value="1:45 AM"/>
+            <StringItem index="8" value="2:00 AM"/>
+            <StringItem index="9" value="2:15 AM"/>
+            <StringItem index="10" value="2:30 AM"/>
+            <StringItem index="11" value="2:45 AM"/>
+            <StringItem index="12" value="3:00 AM"/>
+            <StringItem index="13" value="3:15 AM"/>
+            <StringItem index="14" value="3:30 AM"/>
+            <StringItem index="15" value="3:45 AM"/>
+            <StringItem index="16" value="4:00 AM"/>
+            <StringItem index="17" value="4:15 AM"/>
+            <StringItem index="18" value="4:30 AM"/>
+            <StringItem index="19" value="4:45 AM"/>
+            <StringItem index="20" value="5:00 AM"/>
+            <StringItem index="21" value="5:15 AM"/>
+            <StringItem index="22" value="5:30 AM"/>
+            <StringItem index="23" value="5:45 AM"/>
+            <StringItem index="24" value="6:00 AM"/>
+            <StringItem index="25" value="6:15 AM"/>
+            <StringItem index="26" value="6:30 AM"/>
+            <StringItem index="27" value="6:45 AM"/>
+            <StringItem index="28" value="7:00 AM"/>
+            <StringItem index="29" value="7:15 AM"/>
+            <StringItem index="30" value="7:30 AM"/>
+            <StringItem index="31" value="7:45 AM"/>
+            <StringItem index="32" value="8:00 AM"/>
+            <StringItem index="33" value="8:15 AM"/>
+            <StringItem index="34" value="8:30 AM"/>
+            <StringItem index="35" value="8:45 AM"/>
+            <StringItem index="36" value="9:00 AM"/>
+            <StringItem index="37" value="9:15 AM"/>
+            <StringItem index="38" value="9:30 AM"/>
+            <StringItem index="39" value="9:45 AM"/>
+            <StringItem index="40" value="10:00 AM"/>
+            <StringItem index="41" value="10:15 AM"/>
+            <StringItem index="42" value="10:30 AM"/>
+            <StringItem index="43" value="10:45 AM"/>
+            <StringItem index="44" value="11:00 AM"/>
+            <StringItem index="45" value="11:15 AM"/>
+            <StringItem index="46" value="11:30 AM"/>
+            <StringItem index="47" value="11:45 AM"/>
+            <StringItem index="48" value="12:00 PM"/>
+            <StringItem index="49" value="12:00 PM"/>
+            <StringItem index="50" value="12:15 PM"/>
+            <StringItem index="51" value="12:30 PM"/>
+            <StringItem index="52" value="12:45 PM"/>
+            <StringItem index="53" value="1:00 PM"/>
+            <StringItem index="54" value="1:15 PM"/>
+            <StringItem index="55" value="1:30 PM"/>
+            <StringItem index="56" value="1:45 PM"/>
+            <StringItem index="57" value="2:00 PM"/>
+            <StringItem index="58" value="2:15 PM"/>
+            <StringItem index="59" value="2:30 PM"/>
+            <StringItem index="60" value="2:45 PM"/>
+            <StringItem index="61" value="3:00 PM"/>
+            <StringItem index="62" value="3:15 PM"/>
+            <StringItem index="63" value="3:30 PM"/>
+            <StringItem index="64" value="3:45 PM"/>
+            <StringItem index="65" value="4:00 PM"/>
+            <StringItem index="66" value="4:15 PM"/>
+            <StringItem index="67" value="4:30 PM"/>
+            <StringItem index="68" value="4:45 PM"/>
+            <StringItem index="69" value="5:00 PM"/>
+            <StringItem index="70" value="5:15 PM"/>
+            <StringItem index="71" value="5:30 PM"/>
+            <StringItem index="72" value="5:45 PM"/>
+            <StringItem index="73" value="6:00 PM"/>
+            <StringItem index="74" value="6:15 PM"/>
+            <StringItem index="75" value="6:30 PM"/>
+            <StringItem index="76" value="6:45 PM"/>
+            <StringItem index="77" value="7:00 PM"/>
+            <StringItem index="78" value="7:15 PM"/>
+            <StringItem index="79" value="7:30 PM"/>
+            <StringItem index="80" value="7:45 PM"/>
+            <StringItem index="81" value="8:00 PM"/>
+            <StringItem index="82" value="8:15 PM"/>
+            <StringItem index="83" value="8:30 PM"/>
+            <StringItem index="84" value="8:45 PM"/>
+            <StringItem index="85" value="9:00 PM"/>
+            <StringItem index="86" value="9:15 PM"/>
+            <StringItem index="87" value="9:30 PM"/>
+            <StringItem index="88" value="9:45 PM"/>
+            <StringItem index="89" value="10:00 PM"/>
+            <StringItem index="90" value="10:15 PM"/>
+            <StringItem index="91" value="10:30 PM"/>
+            <StringItem index="92" value="10:45 PM"/>
+            <StringItem index="93" value="11:00 PM"/>
+            <StringItem index="94" value="11:15 PM"/>
+            <StringItem index="95" value="11:30 PM"/>
+            <StringItem index="96" value="11:45 PM"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="endTimeComboBoxActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="startTimeComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="97">
+            <StringItem index="0" value="12:00 AM"/>
+            <StringItem index="1" value="12:15 AM"/>
+            <StringItem index="2" value="12:30 AM"/>
+            <StringItem index="3" value="12:45 AM"/>
+            <StringItem index="4" value="1:00 AM"/>
+            <StringItem index="5" value="1:15 AM"/>
+            <StringItem index="6" value="1:30 AM"/>
+            <StringItem index="7" value="1:45 AM"/>
+            <StringItem index="8" value="2:00 AM"/>
+            <StringItem index="9" value="2:15 AM"/>
+            <StringItem index="10" value="2:30 AM"/>
+            <StringItem index="11" value="2:45 AM"/>
+            <StringItem index="12" value="3:00 AM"/>
+            <StringItem index="13" value="3:15 AM"/>
+            <StringItem index="14" value="3:30 AM"/>
+            <StringItem index="15" value="3:45 AM"/>
+            <StringItem index="16" value="4:00 AM"/>
+            <StringItem index="17" value="4:15 AM"/>
+            <StringItem index="18" value="4:30 AM"/>
+            <StringItem index="19" value="4:45 AM"/>
+            <StringItem index="20" value="5:00 AM"/>
+            <StringItem index="21" value="5:15 AM"/>
+            <StringItem index="22" value="5:30 AM"/>
+            <StringItem index="23" value="5:45 AM"/>
+            <StringItem index="24" value="6:00 AM"/>
+            <StringItem index="25" value="6:15 AM"/>
+            <StringItem index="26" value="6:30 AM"/>
+            <StringItem index="27" value="6:45 AM"/>
+            <StringItem index="28" value="7:00 AM"/>
+            <StringItem index="29" value="7:15 AM"/>
+            <StringItem index="30" value="7:30 AM"/>
+            <StringItem index="31" value="7:45 AM"/>
+            <StringItem index="32" value="8:00 AM"/>
+            <StringItem index="33" value="8:15 AM"/>
+            <StringItem index="34" value="8:30 AM"/>
+            <StringItem index="35" value="8:45 AM"/>
+            <StringItem index="36" value="9:00 AM"/>
+            <StringItem index="37" value="9:15 AM"/>
+            <StringItem index="38" value="9:30 AM"/>
+            <StringItem index="39" value="9:45 AM"/>
+            <StringItem index="40" value="10:00 AM"/>
+            <StringItem index="41" value="10:15 AM"/>
+            <StringItem index="42" value="10:30 AM"/>
+            <StringItem index="43" value="10:45 AM"/>
+            <StringItem index="44" value="11:00 AM"/>
+            <StringItem index="45" value="11:15 AM"/>
+            <StringItem index="46" value="11:30 AM"/>
+            <StringItem index="47" value="11:45 AM"/>
+            <StringItem index="48" value="12:00 PM"/>
+            <StringItem index="49" value="12:00 PM"/>
+            <StringItem index="50" value="12:15 PM"/>
+            <StringItem index="51" value="12:30 PM"/>
+            <StringItem index="52" value="12:45 PM"/>
+            <StringItem index="53" value="1:00 PM"/>
+            <StringItem index="54" value="1:15 PM"/>
+            <StringItem index="55" value="1:30 PM"/>
+            <StringItem index="56" value="1:45 PM"/>
+            <StringItem index="57" value="2:00 PM"/>
+            <StringItem index="58" value="2:15 PM"/>
+            <StringItem index="59" value="2:30 PM"/>
+            <StringItem index="60" value="2:45 PM"/>
+            <StringItem index="61" value="3:00 PM"/>
+            <StringItem index="62" value="3:15 PM"/>
+            <StringItem index="63" value="3:30 PM"/>
+            <StringItem index="64" value="3:45 PM"/>
+            <StringItem index="65" value="4:00 PM"/>
+            <StringItem index="66" value="4:15 PM"/>
+            <StringItem index="67" value="4:30 PM"/>
+            <StringItem index="68" value="4:45 PM"/>
+            <StringItem index="69" value="5:00 PM"/>
+            <StringItem index="70" value="5:15 PM"/>
+            <StringItem index="71" value="5:30 PM"/>
+            <StringItem index="72" value="5:45 PM"/>
+            <StringItem index="73" value="6:00 PM"/>
+            <StringItem index="74" value="6:15 PM"/>
+            <StringItem index="75" value="6:30 PM"/>
+            <StringItem index="76" value="6:45 PM"/>
+            <StringItem index="77" value="7:00 PM"/>
+            <StringItem index="78" value="7:15 PM"/>
+            <StringItem index="79" value="7:30 PM"/>
+            <StringItem index="80" value="7:45 PM"/>
+            <StringItem index="81" value="8:00 PM"/>
+            <StringItem index="82" value="8:15 PM"/>
+            <StringItem index="83" value="8:30 PM"/>
+            <StringItem index="84" value="8:45 PM"/>
+            <StringItem index="85" value="9:00 PM"/>
+            <StringItem index="86" value="9:15 PM"/>
+            <StringItem index="87" value="9:30 PM"/>
+            <StringItem index="88" value="9:45 PM"/>
+            <StringItem index="89" value="10:00 PM"/>
+            <StringItem index="90" value="10:15 PM"/>
+            <StringItem index="91" value="10:30 PM"/>
+            <StringItem index="92" value="10:45 PM"/>
+            <StringItem index="93" value="11:00 PM"/>
+            <StringItem index="94" value="11:15 PM"/>
+            <StringItem index="95" value="11:30 PM"/>
+            <StringItem index="96" value="11:45 PM"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startTimeComboBoxActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
