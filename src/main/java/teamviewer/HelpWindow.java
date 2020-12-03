@@ -156,7 +156,10 @@ public class HelpWindow extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * sends the user to the programs github when clicked
+ * @param evt 
+ */
     private void hyperlinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hyperlinkMouseClicked
          try {
                     Desktop.getDesktop().browse(new URI("https://github.com/Tywhitehouse/TeamViewer"));
@@ -164,16 +167,23 @@ public class HelpWindow extends javax.swing.JFrame {
                     e1.printStackTrace();
                 }
     }//GEN-LAST:event_hyperlinkMouseClicked
-
+/**
+ * turns text blue when moused over
+ * @param evt 
+ */
     private void hyperlinkMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hyperlinkMouseEntered
         hyperlink.setText("<html><a href=''>" + text + "</a></html>");
     }//GEN-LAST:event_hyperlinkMouseEntered
-
+/**
+ * returns the text to normal when mouse leaves from text
+ * @param evt 
+ */
     private void hyperlinkMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hyperlinkMouseExited
         hyperlink.setText(text);
     }//GEN-LAST:event_hyperlinkMouseExited
 
     /**
+     * creates help window
      * @param args the command line arguments
      */
     public static void DrawHelpWindow() {

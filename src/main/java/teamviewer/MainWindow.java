@@ -6,18 +6,22 @@
 package teamviewer;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ * creates the main viewing window 
  * @author tyler
  */
 public class MainWindow extends javax.swing.JFrame {
     ArrayList<String[]> Schedule = new ArrayList<String[]>();
     ArrayList<String> holdingArrayList = new ArrayList<String>();
     ImportEmployeeCSV ImportEmployeeCSV = new ImportEmployeeCSV();
+    ExportSchedule ExportSchedule = new ExportSchedule();
     DefaultTableModel model = new DefaultTableModel();
     
     public String name;
@@ -46,11 +50,12 @@ public class MainWindow extends javax.swing.JFrame {
         updateButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         scheduleTable = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        ExportButton = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         manualAdd = new javax.swing.JMenuItem();
         importAdd = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
 
@@ -97,6 +102,15 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(scheduleTable);
 
+        jButton1.setText("jButton1");
+
+        ExportButton.setText("Export Schedule");
+        ExportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExportButtonActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("Add Employee");
 
         manualAdd.setText("Manually add Empoyee");
@@ -117,9 +131,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         menuBar.add(jMenu1);
 
-        jMenu2.setText("Export Schedule");
-        menuBar.add(jMenu2);
-
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,43 +140,70 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(221, 221, 221)
-                .addComponent(helpButton))
+                .addGap(40, 40, 40)
+                .addComponent(ExportButton)
+                .addGap(98, 98, 98)
+                .addComponent(helpButton)
+                .addContainerGap())
             .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(helpButton)
-                    .addComponent(updateButton))
+                    .addComponent(updateButton)
+                    .addComponent(ExportButton))
                 .addGap(6, 6, 6))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * creates the
+ * @param evt 
+ */
     private void manualAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manualAddActionPerformed
         AddScheduleWindow.DrawScheduleWindow();
     }//GEN-LAST:event_manualAddActionPerformed
-
+/**
+ * creates the CSV import window
+ * @param evt 
+ */
     private void importAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importAddActionPerformed
         ImportEmployeeCSV.ImportEmployee();
     }//GEN-LAST:event_importAddActionPerformed
-
+/**
+ * creates Help window
+ * @param evt 
+ */
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
         HelpWindow.DrawHelpWindow();
     }//GEN-LAST:event_helpButtonActionPerformed
-
+/**adds array to the main schedule table
+ * refreshed the main table
+ * @param evt 
+ */
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         
         model.addRow(holdingArrayList.toArray());
         scheduleTable.setModel(model);
         scheduleTable.repaint();
     }//GEN-LAST:event_updateButtonActionPerformed
+/**
+ * creates the export window
+ * @param evt 
+ */
+    private void ExportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExportButtonActionPerformed
+        try {
+            ExportSchedule.ExportSchedule();
+        } catch (IOException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ExportButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,10 +250,11 @@ public class MainWindow extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ExportButton;
     private javax.swing.JButton helpButton;
     private javax.swing.JMenuItem importAdd;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem manualAdd;

@@ -16,12 +16,16 @@ import java.io.IOException;
 /**
  * open file selector
  * get employee name, day, start/end times from CSV
+ * 
  * @author tyler
  */
 public class ImportEmployeeCSV
 {
     File pickedFile = null;
- 
+ /**
+  * opens file directory
+  * sends employee schedule data to Employee class
+  */
     public void ImportEmployee() 
     {
         Employee Employee = new Employee();
