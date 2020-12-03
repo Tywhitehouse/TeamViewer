@@ -5,19 +5,9 @@
  */
 package teamviewer;
 
-import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvException;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFileChooser;
-import javax.swing.JTable;
+
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,9 +15,10 @@ import javax.swing.table.DefaultTableModel;
  * @author tyler
  */
 public class MainWindow extends javax.swing.JFrame {
-    Copy Copy = new Copy();
     ArrayList<String[]> Schedule = new ArrayList<String[]>();
     ArrayList<String> holdingArrayList = new ArrayList<String>();
+    ImportEmployeeCSV ImportEmployeeCSV = new ImportEmployeeCSV();
+    DefaultTableModel model = new DefaultTableModel();
     
     public String name;
     public String day;
@@ -52,9 +43,9 @@ public class MainWindow extends javax.swing.JFrame {
 
         jMenu3 = new javax.swing.JMenu();
         helpButton = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        scheduleTable = new javax.swing.JTable();
         updateButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        scheduleTable = new javax.swing.JTable();
         menuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         manualAdd = new javax.swing.JMenuItem();
@@ -73,13 +64,20 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jScrollPane2.setToolTipText("");
-        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPane2.setPreferredSize(getPreferredSize());
+        updateButton.setText("Update Table");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButtonActionPerformed(evt);
+            }
+        });
 
         scheduleTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -97,15 +95,7 @@ public class MainWindow extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        scheduleTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
-        jScrollPane2.setViewportView(scheduleTable);
-
-        updateButton.setText("Update Table");
-        updateButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateButtonActionPerformed(evt);
-            }
-        });
+        jScrollPane1.setViewportView(scheduleTable);
 
         jMenu1.setText("Add Employee");
 
@@ -137,19 +127,16 @@ public class MainWindow extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(221, 221, 221)
                 .addComponent(helpButton))
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(helpButton)
@@ -166,7 +153,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_manualAddActionPerformed
 
     private void importAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importAddActionPerformed
-
+        ImportEmployeeCSV.ImportEmployee();
     }//GEN-LAST:event_importAddActionPerformed
 
     private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
@@ -174,7 +161,9 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_helpButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-
+        
+        model.addRow(holdingArrayList.toArray());
+        scheduleTable.setModel(model);
         scheduleTable.repaint();
     }//GEN-LAST:event_updateButtonActionPerformed
 
@@ -218,7 +207,7 @@ public class MainWindow extends javax.swing.JFrame {
        holdingArrayList.add(day);
        holdingArrayList.add(startTime);
        holdingArrayList.add(endTime);
-   }      
+   }
     
     
 
@@ -228,7 +217,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem manualAdd;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JTable scheduleTable;

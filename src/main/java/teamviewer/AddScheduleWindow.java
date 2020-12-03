@@ -5,12 +5,17 @@
  */
 package teamviewer;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 /**
  *
  * @author tyler
  */
 public class AddScheduleWindow extends javax.swing.JFrame {
-
+    List<String> list = new ArrayList<String>();
+     Employee Employee = new Employee();
     /**
      * Creates new form AddScheduleWindow
      */
@@ -32,7 +37,7 @@ public class AddScheduleWindow extends javax.swing.JFrame {
         employeeNameField = new javax.swing.JTextField();
         startTimelabel = new javax.swing.JLabel();
         endTimelabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        addButton = new javax.swing.JButton();
         dayComboBox = new javax.swing.JComboBox<>();
         startTimelabel1 = new javax.swing.JLabel();
         endTimeComboBox = new javax.swing.JComboBox<>();
@@ -47,7 +52,12 @@ public class AddScheduleWindow extends javax.swing.JFrame {
 
         endTimelabel.setText("End time");
 
-        jButton1.setText("Add");
+        addButton.setText("Add");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
 
         dayComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }));
         dayComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +109,7 @@ public class AddScheduleWindow extends javax.swing.JFrame {
                             .addComponent(startTimeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(96, 96, 96)
-                            .addComponent(jButton1)))
+                            .addComponent(addButton)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(startTimelabel1)
@@ -125,7 +135,7 @@ public class AddScheduleWindow extends javax.swing.JFrame {
                     .addComponent(endTimeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(endTimelabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(addButton)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -144,6 +154,14 @@ public class AddScheduleWindow extends javax.swing.JFrame {
     private void startTimeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startTimeComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_startTimeComboBoxActionPerformed
+
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        
+        Employee.setName(employeeNameField.getText());
+        Employee.setDay((String) dayComboBox.getSelectedItem());
+        Employee.setStartTime((String) startTimeComboBox.getSelectedItem());
+        Employee.setEndTime((String) endTimeComboBox.getSelectedItem());
+    }//GEN-LAST:event_addButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,11 +200,11 @@ public class AddScheduleWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addButton;
     private javax.swing.JComboBox<String> dayComboBox;
     private javax.swing.JTextField employeeNameField;
     private javax.swing.JComboBox<String> endTimeComboBox;
     private javax.swing.JLabel endTimelabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JComboBox<String> startTimeComboBox;
     private javax.swing.JLabel startTimelabel;

@@ -6,10 +6,7 @@
 package teamviewer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Copy;
+
 
 /**
  * 
@@ -23,12 +20,19 @@ public class Employee
 	private String startTime;
 	private String endTime;
         
+        ArrayList<String> employeeList = new ArrayList<>();
         public void addEmployee(String name, String day, String startTime, String endTime)
         {
+            employeeList.add(name);
+            employeeList.add(day);
+            employeeList.add(startTime);
+            employeeList.add(endTime);
+            
             this.name = name;
             this.day = day;
             this.startTime = startTime;
             this.endTime = endTime;
+        
         }
 
 	public String getDay() {
@@ -62,5 +66,8 @@ public class Employee
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
-    
+        public ArrayList getEmployeeList() {
+		return employeeList;
+	}
+        
 }
