@@ -21,6 +21,13 @@ public class Employee
 	private String endTime;
         
         ArrayList<String> employeeList = new ArrayList<>();
+        /**
+         * adds data to employee array
+         * @param name
+         * @param day
+         * @param startTime
+         * @param endTime 
+         */
         public void addEmployee(String name, String day, String startTime, String endTime)
         {
             employeeList.add(name);
@@ -34,7 +41,7 @@ public class Employee
             this.endTime = endTime;
         
         }
-
+        
 	public String getDay() {
 		return day;
 	}

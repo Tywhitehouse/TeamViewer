@@ -154,7 +154,11 @@ public class AddScheduleWindow extends javax.swing.JFrame {
     private void startTimeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startTimeComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_startTimeComboBoxActionPerformed
-
+/**
+ * pulls data from employeeNameField, dayComboBox, startTimeComboBox, endTimeComboBox
+ * and sends it to the Employee class
+ * @param evt 
+ */
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         
         Employee.setName(employeeNameField.getText());
